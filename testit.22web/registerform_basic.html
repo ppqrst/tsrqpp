@@ -9,9 +9,11 @@
     <legend>Registration information:</legend>
     Email:<br>
     <input type="email" name="email" required>
+	<span class="error">* <?php echo $emailErr;?></span>
     <br>
     Password:<br>
     <input type="password" name="password" required>
+	<span class="error">* <?php echo $passwordErr;?></span>
 	<br>
     Confirm Password:<br>
     <input type="password" name="password2" required>
