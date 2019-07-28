@@ -54,7 +54,8 @@ if (empty($emailErr) and empty($passwordErr)) {
 	$username = "epiz_24031081";
 	$dbpassword = "Bm5Z1uhbboD3";
 	$dbname = "epiz_24031081_testit";
-
+	$pw_hash = "";
+	
 	// Create connection
 	$conn = new mysqli($servername, $username, $dbpassword, $dbname);
 	// Check connection
@@ -62,15 +63,19 @@ if (empty($emailErr) and empty($passwordErr)) {
 		die("Connection failed: " . $conn->connect_error);
 	} 
 
+	// Encrypt password (for login check use logical = password_verify($pw_from_form, $pw_from_db))
+	$pw_hash = password_hash($password, PASSWORD_DEFAULT);
+	echo "Hashed password: " . $pw_hash . "<br>";
+	
 	// sql to insert into table
-	$sql = "INSERT INTO Users (email, psswrd) VALUES ('" . $email . "', '" . $password . "')";
+	$sql = "INSERT INTO Users (email, psswrd) VALUES ('" . $email . "', '" . $pw_hash . "')";
 
 	if ($conn->query($sql) === TRUE) {
-		echo "Registered successfully";
+		echo "<br>Registered successfully<br>";
 	} else {
-		echo "Error: " . $conn->error;
+		echo "<br>Error: " . $conn->error . "<br>";
 	}
-
+	
 	$conn->close();
 }
 ?>
