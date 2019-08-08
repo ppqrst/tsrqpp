@@ -52,7 +52,8 @@ $sql = "CREATE TABLE Questions (
 id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 level INT UNSIGNED NOT NULL,
 question VARCHAR(1024) NOT NULL,
-answer VARCHAR(128) NOT NULL
+answer VARCHAR(128) NOT NULL,
+unit VARCHAR(32) DEFAULT ''
 )";
 if ($conn->query($sql) === TRUE) {
     echo "Table Questions created successfully<br>";
