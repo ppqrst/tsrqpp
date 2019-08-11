@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="8767c334-1606-4450-a92e-e96a552eedec" name="AWS-Server" url="http://13.55.139.23">
+        <fileTransfer host="13.55.139.23" port="22" privateKey="$PROJECT_DIR$/../mvp-projects/main-servers-key-pair.pem" rootFolder="/var/www/html/" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
